@@ -13,5 +13,5 @@ public interface ConjuntoMamushkaTDA {
     //encuentra el elemento dato en el TDA
 
     boolean estaVacio( ); //devuelve un boolean que informa si el TDA está
-//vacío
+    //vacío
 }
