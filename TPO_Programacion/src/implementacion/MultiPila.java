@@ -29,7 +29,7 @@ public class MultiPila implements MultiPilaTDA {
 
     @Override
     public void desapilar(PilaTDA valores) {
-        PilaTDA copia = (PilaTDA) valores;
+        PilaTDA copia = new Pila();
         copia.inicializarPila();
         int i = 0;
         while (!valores.pilaVacia()) {
@@ -37,7 +37,7 @@ public class MultiPila implements MultiPilaTDA {
             int v = valores.tope();
             valores.desapilar();
             copia.apilar(v);
-            if (v != arr[indice - i - 1]) {
+            if (v != arr[indice - i]) {
                 while (!copia.pilaVacia()) {
                     v = copia.tope();
                     valores.apilar(v);
@@ -58,7 +58,7 @@ public class MultiPila implements MultiPilaTDA {
     public PilaTDA tope(int cantidad) {
         PilaTDA res = new Pila();
         res.inicializarPila();
-        int i = indice - cantidad - 1;
+        int i = indice - cantidad;
         if (i < 0) {
             i = 0;
         }
