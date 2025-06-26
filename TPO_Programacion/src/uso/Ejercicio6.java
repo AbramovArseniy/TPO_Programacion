@@ -7,6 +7,7 @@ public class Ejercicio6 {
     public static void main(String[] args) {
         PilaTDA pila = new Pila();
         pila.inicializarPila();
+        //Llenamos la pila.
         pila.apilar(5);
         pila.apilar(2);
         pila.apilar(1);
@@ -14,17 +15,21 @@ public class Ejercicio6 {
         pila.apilar(6);
         pila.apilar(1);
         pila.apilar(2);
-        System.out.println(pila.tope());
-        float res = porcentajeDePares(pila);
+        System.out.println("Tope de pila: "+pila.tope());
+        float res = porcentajeDePares(pila); // Obtenemos el porcentaje.
         System.out.println("Porcentaje de pares: " + res + "%");
         System.out.println("Tope de pila: " + pila.tope());
     }
 
     public static float porcentajeDePares(PilaTDA pila) {
-        PilaTDA nuevoPila = new Pila();
+        // Función para calcular el porcentaje de pares, complejidad O(2n).
+
+        PilaTDA nuevoPila = new Pila(); //Creamos una pila auxiliar.
         nuevoPila.inicializarPila();
+
         float cantPares = 0;
         float cant = 0;
+        //Recorremos la pila y contamos la cantidad de elementos y la cantidad de elementos pares.
         while (!pila.pilaVacia()) {
             cant++;
             int elemento = pila.tope();
@@ -35,8 +40,9 @@ public class Ejercicio6 {
             }
 
         }
+
         pila.inicializarPila();
-        System.out.println(nuevoPila.pilaVacia());
+        //Devolvemos los elementos a la pila original.
         while (!nuevoPila.pilaVacia()) {
             pila.apilar(nuevoPila.tope());
             nuevoPila.desapilar();
