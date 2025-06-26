@@ -7,13 +7,14 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
     private int[] a;
     private int cant;
 
-    public void inicializarConjunto(){
+
+    public void inicializarConjunto() {
         a = new int[100];
         cant = 0;
-    };
+    }
 
     @Override
-    public ConjuntoEspecialTDA.Respuesta agregar(int valor){
+    public ConjuntoEspecialTDA.Respuesta agregar(int valor) {
         ConjuntoEspecialTDA.Respuesta resp = new ConjuntoEspecialTDA.Respuesta();
         resp.rta = valor;
         resp.error = true;
@@ -23,15 +24,15 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
             resp.error = false;
         }
         return resp;
-    };
+    }
 
     @Override
-    public ConjuntoEspecialTDA.Respuesta sacar(int valor){
+    public ConjuntoEspecialTDA.Respuesta sacar(int valor) {
         ConjuntoEspecialTDA.Respuesta resp = new ConjuntoEspecialTDA.Respuesta();
         resp.rta = valor;
         resp.error = true;
         int i;
-        for(i = 0; i < cant && a[i] != valor; ++i) {
+        for (i = 0; i < cant && a[i] != valor; ++i) {
         }
 
         if (i < cant) {
@@ -40,10 +41,10 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
             resp.error = false;
         }
         return resp;
-    };
+    }
 
     @Override
-    public ConjuntoEspecialTDA.Respuesta elegir(){
+    public ConjuntoEspecialTDA.Respuesta elegir() {
         ConjuntoEspecialTDA.Respuesta resp = new ConjuntoEspecialTDA.Respuesta();
         resp.error = true;
         if (conjuntoVacio()) {
@@ -52,23 +53,23 @@ public class ConjuntoEspecial implements ConjuntoEspecialTDA {
 
         int max = cant - 1;
         int min = 0;
-        int pos = (int)(Math.random() * (double)(max - min + 1) + (double)min);
+        int pos = (int) (Math.random() * (double) (max - min + 1) + (double) min);
         resp.rta = a[pos];
         resp.error = false;
         return resp;
-    };
+    }
 
     @Override
-    public boolean pertenece(int valor){
+    public boolean pertenece(int valor) {
         int i;
-        for(i = 0; i < cant && a[i] != valor; ++i) {
+        for (i = 0; i < cant && a[i] != valor; ++i) {
         }
 
         return i < cant;
-    };
+    }
 
     @Override
-    public boolean conjuntoVacio(){
+    public boolean conjuntoVacio() {
         return cant == 0;
-    };
+    }
 }
