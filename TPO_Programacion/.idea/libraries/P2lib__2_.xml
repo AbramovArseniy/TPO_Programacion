@@ -4,6 +4,8 @@
       <root url="jar://$PROJECT_DIR$/P2lib.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/P2lib.jar!/" />
+    </SOURCES>
   </library>
 </component>
