@@ -1,9 +1,11 @@
+package uso;
+
 import implementacion.*;
 import interfaz.*;
 import imple.*;
 import tda.*;
 
-public class Ejersicio1 {
+public class Ejercicio1 {
     public static void main(String[] args) {
         usoConjuntoEspecial();
     }

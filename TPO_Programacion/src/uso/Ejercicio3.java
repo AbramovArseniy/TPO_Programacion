@@ -1,11 +1,13 @@
+package uso;
+
 import implementacion.*;
 import interfaz.*;
 import imple.*;
 import tda.*;
 
-public class Ejersicio2 {
+public class Ejercicio3 {
     public static void main(String[] args) {
-        usoMultiPilas();
+        usoMultiPila();
     }
 
     public static void usoMultiPila() {
