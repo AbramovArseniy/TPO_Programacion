@@ -3,7 +3,7 @@ import interfaz.*;
 import imple.*;
 import tda.*;
 
-public class Ejersicio2 {
+public class Ejercicio2 {
     public static void main(String[] args) {
         usoMultiPilas();
     }
