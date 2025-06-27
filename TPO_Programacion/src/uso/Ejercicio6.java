@@ -22,7 +22,7 @@ public class Ejercicio6 {
     }
 
     public static float porcentajeDePares(PilaTDA pila) {
-        // Función para calcular el porcentaje de pares, complejidad O(2n).
+        // Función para calcular el porcentaje de pares, complejidad O(n).
 
         PilaTDA nuevoPila = new Pila(); //Creamos una pila auxiliar.
         nuevoPila.inicializarPila();
