@@ -1,12 +1,14 @@
 package uso;
 
 import implementacion.DiccionarioSimpleColas;
+import tda.ConjuntoTDA;
 import tda.DiccionarioSimpleTDA;
 
 public class Ejercicio5 {
     public static void main(String[] args) {
         UsoDiccionarioSimpleColas();
     }
+
     public static void UsoDiccionarioSimpleColas() {
         DiccionarioSimpleTDA dic = new DiccionarioSimpleColas();
         dic.inicializarDiccionario();
@@ -14,6 +16,14 @@ public class Ejercicio5 {
         dic.agregar(1, 100);
         dic.agregar(2, 200);
         dic.agregar(3, 300);
+        ConjuntoTDA claves = dic.claves();
+
+        System.out.println("Claves:");
+        while (!claves.conjuntoVacio()) {
+            int clave = claves.elegir();
+            System.out.println("clave: " + clave);
+            claves.sacar(clave);
+        }
 
         System.out.println("Clave 1: " + dic.recuperar(1));
         System.out.println("Clave 2: " + dic.recuperar(2));
@@ -31,5 +41,7 @@ public class Ejercicio5 {
 
         System.out.println("clave 1 sigue " + dic.recuperar(1));
         System.out.println("Clave 3 sigue " + dic.recuperar(3));
+
+
     }
 }
