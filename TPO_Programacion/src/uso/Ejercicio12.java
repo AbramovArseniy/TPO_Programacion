@@ -18,6 +18,7 @@ public class Ejercicio12 {
         int sumaImpares = sumaImpares(abb1);
         System.out.println("Suma de elementos impares: " + sumaImpares);  // Esperado: 5 + 7 + 9 = 21
     }
+
     public static int sumaImpares(ABBTDA abb) {
         if (abb.arbolVacio()) {
             return 0;
