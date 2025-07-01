@@ -30,12 +30,13 @@ public class Ejercicio15 {
         int entra = 0;
         int sale = 0;
 
+        // recuperamos las vertices del grafo
         ConjuntoTDA vertices = grafo.vertices();
         int x = vertices.elegir();
 
         while (!vertices.conjuntoVacio()) {
             if (grafo.existeArista(x, v)) {
-                entra++;
+                entra++; // si hay una arista x -> v
             }
             if (grafo.existeArista(v, x)) {
                 sale++;

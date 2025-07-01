@@ -27,24 +27,30 @@ public class Ejercicio7 {
         }
     }
 
+    // Tiempo de ejecucion: O(n^2)  n - cantidad de valores en la pila
     public static ConjuntoTDA conjuntoDeRepetidos(PilaTDA pila) {
+        // Creamos una copia para no perder los valores originales
         PilaTDA copia = new Pila();
         copia.inicializarPila();
+        // Conjunto de todos elemetos de pila para encontrar las repeticiones
         ConjuntoTDA conjTodos = new Conjunto();
         conjTodos.inicializarConjunto();
+        // Conjunto de elementos repetidos de la pila
         ConjuntoTDA conjRepetidos = new Conjunto();
         conjRepetidos.inicializarConjunto();
+
         while (!pila.pilaVacia()) {
-            int v = pila.tope();
+            int v = pila.tope(); // tomamos valor tope
             pila.desapilar();
-            copia.apilar(v);
+            copia.apilar(v); // agregamos valores de pila original a la copia
             if (conjTodos.pertenece(v)) {
-                conjRepetidos.agregar(v);
+                conjRepetidos.agregar(v); // si ya encontremos este valor lo agregamos a conjRepetidos
             } else {
-                conjTodos.agregar(v);
+                conjTodos.agregar(v); // si no encontremos este valor lo agregamos a conjuntoTodos
             }
         }
 
+        // Restauramos la pila original
         while (!copia.pilaVacia()) {
             int v = copia.tope();
             pila.apilar(v);
