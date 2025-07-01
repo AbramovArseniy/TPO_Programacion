@@ -6,7 +6,6 @@ import imple.DiccionarioMultiple;
 import tda.ColaTDA;
 import tda.ConjuntoTDA;
 import tda.DiccionarioMultipleTDA;
-import tda.DiccionarioSimpleTDA;
 
 public class Ejercicio11 {
     public static void main(String[] args) {
@@ -25,7 +24,7 @@ public class Ejercicio11 {
         System.out.println("\t2 : [20, 30]");
         System.out.println("\t3 : [10, 40]");
 
-        ColaTDA resultado = valoresSinRepeticionRestaurando(dicc);
+        ColaTDA resultado = valoresSinRepeticion(dicc);
 
         System.out.print("Cola resultado: ");
         while (!resultado.colaVacia()) {
@@ -34,50 +33,36 @@ public class Ejercicio11 {
         }
     }
 
-    public static ColaTDA valoresSinRepeticionRestaurando(DiccionarioMultipleTDA dicc) {
-        ColaTDA resultado = new Cola();
-        resultado.inicializarCola();
+    // n - cantidad de elementos en el diccionario
+    // Tiempo de ejecucion: O(n^2)
+    public static ColaTDA valoresSinRepeticion(DiccionarioMultipleTDA dicc) {
+        // cola de valores unicos del diccionario
+        ColaTDA res = new Cola();
+        res.inicializarCola();
 
-        ConjuntoTDA clavesOriginales = dicc.claves();
-        ConjuntoTDA copiaClaves = new Conjunto();
-        copiaClaves.inicializarConjunto();
+        ConjuntoTDA claves = dicc.claves();
 
-        ConjuntoTDA valoresUnicos = new Conjunto();
+        ConjuntoTDA valoresUnicos = new Conjunto(); // conjunto de valores unicos del diccionario
         valoresUnicos.inicializarConjunto();
 
-        while (!clavesOriginales.conjuntoVacio()) {
-            int clave = clavesOriginales.elegir();
-            clavesOriginales.sacar(clave);
-            copiaClaves.agregar(clave);
-        }
+        while (!claves.conjuntoVacio()) {
+            int clave = claves.elegir();
+            claves.sacar(clave);
 
-        while (!copiaClaves.conjuntoVacio()) {
-            int clave = copiaClaves.elegir();
-            copiaClaves.sacar(clave);
+            ConjuntoTDA valores = dicc.recuperar(clave); // recuperamos valores por una clave
 
-            ConjuntoTDA valoresOriginales = dicc.recuperar(clave);
-            ConjuntoTDA valoresCopia = new Conjunto();
-            valoresCopia.inicializarConjunto();
+            while (!valores.conjuntoVacio()) {
+                int valor = valores.elegir();
+                valores.sacar(valor);
 
-            while (!valoresOriginales.conjuntoVacio()) {
-                int valor = valoresOriginales.elegir();
-                valoresOriginales.sacar(valor);
-
+                // Si todavia no encontremos esta valor lo agregamos a res
                 if (!valoresUnicos.pertenece(valor)) {
                     valoresUnicos.agregar(valor);
-                    resultado.acolar(valor);
+                    res.acolar(valor);
                 }
-
-                valoresCopia.agregar(valor);
-            }
-
-            while (!valoresCopia.conjuntoVacio()) {
-                int valor = valoresCopia.elegir();
-                valoresCopia.sacar(valor);
-                dicc.agregar(clave, valor);
             }
         }
 
-        return resultado;
+        return res;
     }
 }

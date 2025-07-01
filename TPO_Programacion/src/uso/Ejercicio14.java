@@ -31,12 +31,13 @@ public class Ejercicio14 {
         ConjuntoTDA puente = new Conjunto();
         puente.inicializarConjunto();
 
+        // recuperamos las vertices del grafo
         ConjuntoTDA vertices = grafo.vertices();
         int v = vertices.elegir();
 
         while (!vertices.conjuntoVacio()) {
             if (grafo.existeArista(origen, v) && grafo.existeArista(v, destino)) {
-                puente.agregar(v);
+                puente.agregar(v); // si es una vertice puente agregamosla al conjunto puente
             }
             vertices.sacar(v);
             if (!vertices.conjuntoVacio()) {
