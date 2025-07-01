@@ -82,12 +82,13 @@ public class DiccionarioSimpleColas implements DiccionarioSimpleTDA {
     public ConjuntoTDA claves() {
         ConjuntoTDA c = new Conjunto();
         c.inicializarConjunto();
-
         recibirClaves(c);
         return c;
     }
 
     private void recibirClaves(ConjuntoTDA claves) {
+        // Llena el conjunto con las claves
+        // func recursiva
         if (!cola.colaVacia()) {
             int valor = cola.primero();
             int prioridad = cola.prioridad();
